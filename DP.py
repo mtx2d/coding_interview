@@ -18,9 +18,10 @@ from manim import (
     FadeIn,
 )
 
+
 def get_pillars():
     pillars = []
-    
+
     return pillars
 
 
@@ -44,30 +45,30 @@ class ProblemStatement(Scene):
 
         self.play(Write(text))
 
+
 class SquareFlipRight(Scene):
     def construct(self):
         square = Square()
         square.flip(RIGHT)
         self.play(Create(square))
 
+
 class RectangleExample(Scene):
     def construct(self):
         rec = Rectangle()
         self.play(Create(rec))
 
+
 class Pillars(Scene):
     # cannot simply pass in a list of items to play
     def construct(self):
-        
         def get_pillars():
             pillars = []
             heights = [random.randint(1, 8) for _ in range(8)]
-            for i,h in enumerate(heights):
-                rec=Rectangle(height = h, width = 1.0).shift(UP * h/2)
+            for i, h in enumerate(heights):
+                rec = Rectangle(height=h, width=1.0).shift(UP * h / 2)
                 pillars.append(rec)
             return Group(*pillars).arrange(buff=0.5)
 
         self.play(*[FadeIn(r) for r in get_pillars()])
         self.wait(10)
-
-
