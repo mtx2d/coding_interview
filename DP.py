@@ -5,6 +5,7 @@ from manim import (
     Square,
     Scene,
     Create,
+    Group,
     ReplacementTransform,
     Text,
     Write,
@@ -63,9 +64,8 @@ class Pillars(Scene):
             heights = [random.randint(1, 8) for _ in range(8)]
             for i,h in enumerate(heights):
                 rec=Rectangle(height = h, width = 1.0).shift(UP * h/2)
-                rec.shift(LEFT * (i - 4)* 2)
                 pillars.append(rec)
-            return pillars
+            return Group(*pillars).arrange(buff=0.5)
 
         self.play(*[FadeIn(r) for r in get_pillars()])
         self.wait(10)
