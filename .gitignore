@@ -1,2 +1,4 @@
 media/
 *.py~
+*.*~
+__pycache__/
