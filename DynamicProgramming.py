@@ -9,8 +9,6 @@ from manim import (
     ReplacementTransform,
     Text,
     Write,
-    BLUE,
-    BLUE_E,
     UP,
     DOWN,
     RIGHT,
@@ -19,29 +17,22 @@ from manim import (
     FadeIn,
 )
 
+
 class ProblemStatement(Scene):
     def construct(self):
-        circle = Circle()
-        circle.set_fill(BLUE, opacity=0.5)
-        circle.set_stroke(BLUE_E, width=4)
-        square = Square()
-
-        self.play(Create(square))
-        self.wait()
-        self.play(ReplacementTransform(square, circle))
-        self.wait()
 
         text = Text(
-            """ Dynamic Programming is a technique used to 
-            help reduce overlapping computations
+            """ Dynamic Programming is a technique used to avoid 
+            redundant computations when there is overlapping sub-problems.
             """
         )
 
         self.play(Write(text))
 
+
 class Pillars(Scene):
     def construct(self):
-        def get_pillars(num = 8, max_height = 8):
+        def get_pillars(num=8, max_height=8):
             pillars = []
             heights = [random.randint(1, max_height) for _ in range(num)]
             for i, h in enumerate(heights):
