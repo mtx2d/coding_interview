@@ -55,13 +55,13 @@ class RectangleExample(Scene):
 
 class Pillars(Scene):
     def construct(self):
-        def get_pillars():
+        def get_pillars(num = 8, max_height = 8):
             pillars = []
-            heights = [random.randint(1, 8) for _ in range(8)]
+            heights = [random.randint(1, max_height) for _ in range(num)]
             for i, h in enumerate(heights):
                 rec = Rectangle(height=h, width=1.0).shift(UP * h / 2)
                 pillars.append(rec)
             return VGroup(*pillars).arrange(buff=0.5, aligned_edge=DOWN)
 
-        self.play(*[FadeIn(r) for r in get_pillars()])
+        self.play(*[FadeIn(r) for r in get_pillars(8)])
         self.wait(10)
