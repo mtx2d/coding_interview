@@ -5,25 +5,19 @@ from manim import (
     Square,
     Scene,
     Create,
-    Group,
+    VGroup,
     ReplacementTransform,
     Text,
     Write,
     BLUE,
     BLUE_E,
     UP,
+    DOWN,
     RIGHT,
     LEFT,
     Rectangle,
     FadeIn,
 )
-
-
-def get_pillars():
-    pillars = []
-
-    return pillars
-
 
 class ProblemStatement(Scene):
     def construct(self):
@@ -60,7 +54,6 @@ class RectangleExample(Scene):
 
 
 class Pillars(Scene):
-    # cannot simply pass in a list of items to play
     def construct(self):
         def get_pillars():
             pillars = []
@@ -68,7 +61,7 @@ class Pillars(Scene):
             for i, h in enumerate(heights):
                 rec = Rectangle(height=h, width=1.0).shift(UP * h / 2)
                 pillars.append(rec)
-            return Group(*pillars).arrange(buff=0.5)
+            return VGroup(*pillars).arrange(buff=0.5, aligned_edge=DOWN)
 
         self.play(*[FadeIn(r) for r in get_pillars()])
         self.wait(10)
