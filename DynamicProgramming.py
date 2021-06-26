@@ -39,20 +39,6 @@ class ProblemStatement(Scene):
 
         self.play(Write(text))
 
-
-class SquareFlipRight(Scene):
-    def construct(self):
-        square = Square()
-        square.flip(RIGHT)
-        self.play(Create(square))
-
-
-class RectangleExample(Scene):
-    def construct(self):
-        rec = Rectangle()
-        self.play(Create(rec))
-
-
 class Pillars(Scene):
     def construct(self):
         def get_pillars(num = 8, max_height = 8):
